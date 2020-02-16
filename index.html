@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>tripleM - Movie Moments Master</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/3423307ac3.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="formElements.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Kanit:200,400" rel="stylesheet">
+  </head>
+  <body>
+    <div class="videoBackground">
+      <video muted id="videoPlayer">
+        <source id="currentVID" type="video/mp4">
+      </video>
+      <div class="chase">
+        <div id="dest"></div>
+        <div id="current"></div>
+        <input id="speed" type="number" step="0.1" min="0.1" value="0.3" max="10">
+        <div id="chaseMenu" class="menu">
+          <div class="item">
+            <span style="background:black">st</span>
+          </div>
+          <div class="item">
+            <span>va</span>
+          </div>
+        </div>
+      </div>
+      <div id="videoMenu" class="menu">
+        <div id="settings" class="item">
+          <i class="fa fa-cog" aria-hidden="true"></i>
+        </div>
+        <div id="back" class="item">
+          <i class="fa fa-home" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="time">
+        <div class="timePrct">0%</div>
+        <div class="timeAbs">0:00</div>
+      </div>
+      <div id="modal3" class="modal">
+        <div class="modal-content">
+          <div class="close"><i class="fa fa-times" aria-hidden="true"></i></div>
+          <h2>Settings</h2>
+          <div class="settItem">
+            <span>Frame skipping: <span class="info">(decrease for better performace)</span></span>
+            <span class="controls">
+              <span class="rangeVal">10</span>
+              <input type="range" min="1" max="100" value="10" oninput="updateValue(this.value);">
+            </span>
+
+          </div>
+          <div class="settItem">
+            <span class="checkDesc">Show time and percents:</span>
+            <input type="checkbox" id="checkbox-1" class="regular-checkbox" checked>
+            <label for="checkbox-1" style="display:inline"></label>
+          </div>
+          <div class="settItem">
+            <span class="checkDesc">Chase mode:</span>
+            <input type="checkbox" id="checkbox-2" class="regular-checkbox">
+            <label for="checkbox-2" style="display:inline"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="background">
+        <div class="sector1">
+          <div class="title">
+            <div class="triple">triple</div>
+            <div class="m m1">M</div>
+            <div class="m m2">M</div>
+            <div class="m m3">M</div>
+            <div class="addit ovie">ovie</div>
+            <div class="addit oments">oments</div>
+            <div class="addit aster">aster</div>
+          </div>
+        </div>
+        <div class="sector2">
+          <div class="uploadButtonBord">
+            <label for="newlocalFILE" class="uploadButton">
+              <span>Upload a video</span>
+              <div>
+              </div>
+            </label>
+            <input id="newlocalFILE" name="localfile" size="50" maxlength="100000"
+             accept="video/*" type="file" onchange="setUpLocalVideo();">
+            <div class="underButton">
+              <span style="float:left"><a href="#" onclick="return false;" id="otherExamples">Or choose from examples</a></span>
+              <span style="float:right"><a href="#" onclick="return false;" id="info"><i class="fa fa-info-circle" aria-hidden="true" style="font-size:30px"></i></a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <div class="close"><i class="fa fa-times" aria-hidden="true"></i></div>
+      </div>
+    </div>
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <div class="close"><i class="fa fa-times" aria-hidden="true"></i></div>
+        <h4>What is <span style="color: #f81">triplem.g6.cz</span> ?</h4>
+        <p>TripleM or Movie Moments Master is a tool for reviewing frames in any video by your mouse.</p>
+        <h4>What videos to upload?</h4>
+        <p>You can upload any video but it's recommended to choose 360p or 480p videos due to performace reasons. You can always set frame skipping for better performace.</p>
+        <h4>Where is the video uploaded?</h4>
+        <p>Nowhere. 'Upload' rather means select here. No data are leaving your browser.</p>
+        <span class="info copy"><a href="https://reconweby.cz" target="_blank">Matěj Motl</a> © 2020</span>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

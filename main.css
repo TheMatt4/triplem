@@ -1,0 +1,512 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Kanit', sans-serif;
+}
+#videoPlayer {
+  width: 100%;
+  max-height: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+}
+.videoBackground {
+  z-index: -1;
+  background: #222;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.videoBackground .time {
+  transition: 0.5s all;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid grey;
+  color: white;
+  width: 100px;
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  border-radius: 5px;
+}
+.videoBackground .time .timePrct {
+  font-size: 36px;
+}
+.show {
+  opacity: 0.7 !important;
+}
+#videoMenu {
+  bottom: 36px;
+  right: 18px;
+}
+#chaseMenu {
+  position: static;
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+#chaseMenu .item {
+  width: 22px;
+}
+.menu {
+  z-index: 2;
+  user-select: none;
+  position: fixed;
+  background: rgba(255, 255, 255, 0.2);
+}
+.menu .item {
+  padding: 10px;
+  position: relative;
+  float: left;
+  width: 32px;
+  height: 32px;
+  font-size: 32px;
+  cursor: pointer;
+  transition: 0.1s all;
+}
+.menu .item:hover {
+  background: white;
+}
+.menu .item:hover i,
+.menu .item:hover span {
+  color: #e51;
+}
+.menu .item i,
+.menu .item span {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.1s color;
+}
+.menu .item span {
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+#newlocalFILE {
+  display: none;
+}
+.uploadButton {
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #f90;
+  width: 300px;
+  height: 120px;
+  display: block;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+.uploadButton div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 120px;
+  overflow: hidden;
+  background-image: url("img/arrup.png");
+  transition: 0.1s all;
+  z-index: -1;
+  opacity: 0;
+}
+.uploadButton span {
+  user-select: none;
+  font-size: 36px;
+  font-weight: lighter;
+  color: white;
+  display: inline-block;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.uploadButton:hover {
+  background: #e51;
+}
+.uploadButton:hover div {
+  animation-name: arrowUP;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  opacity: 0.3;
+}
+.uploadButton:active {
+  background: #f30;
+}
+@keyframes arrowUP {
+  0% {
+    top: 120px;
+  }
+  100% {
+    top: -120px;
+  }
+}
+.uploadButtonBord {
+  padding: 15px;
+  border: 2px solid #e72;
+  width: 300px;
+  height: 120px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.background {
+  background: linear-gradient(to bottom right, #3a77ff, #42bb8b);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.title {
+  user-select: none;
+  cursor: context-menu;
+  width: 550px;
+  height: 200px;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.title:hover .triple {
+  left: -50%;
+  top: 40px;
+  opacity: 0;
+  transform: rotate3d(1, 1, 0, 90deg);
+}
+.title:hover .m {
+  right: 70%;
+  font-size: 96px;
+}
+.title:hover .m1 {
+  top: 90%;
+}
+.title:hover .m2 {
+  top: 10%;
+}
+.title:hover .addit {
+  left: 33%;
+  opacity: 1;
+  letter-spacing: 15px;
+  transform: translateY(-50%) scale(1);
+}
+.title div {
+  top: 50%;
+  transform: translateY(-50%);
+  position: relative;
+}
+.title .triple {
+  background: -webkit-linear-gradient(white, silver);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 144px;
+  left: 0;
+  transition: all 0.5s;
+  pointer-events: none;
+}
+.title .m {
+  position: absolute;
+  right: 0;
+  color: #f90;
+  font-size: 250px;
+  font-weight: bold;
+  line-height: 270px;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s;
+  top: 50%;
+  pointer-events: none;
+}
+.title .addit {
+  position: absolute;
+  font-size: 72px;
+  left: 120%;
+  letter-spacing: 0;
+  color: white;
+  opacity: 0;
+  transition: 0.5s all;
+  pointer-events: none;
+  transform: translateY(-50%) scale(0);
+}
+.title .ovie {
+  top: 10%;
+}
+.title .oments {
+  top: 50%;
+}
+.title .aster {
+  top: 90%;
+}
+.sector1 {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 250px;
+  margin-top: 50px;
+}
+.sector2 {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+.underButton {
+  font-size: 20px;
+  position: absolute;
+  top: 102%;
+  left: 0;
+  width: 100%;
+}
+.underButton i {
+  transform: scale(0.8) translateX(15%);
+}
+.underButton a {
+  color: #821;
+}
+.underButton a:hover {
+  color: #d21;
+}
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 5;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: #000000;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  min-width: 500px;
+  position: relative;
+  box-shadow: 0 0 2px 0 #000;
+}
+/* The Close Button */
+.close i {
+  color: #aaaaaa;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+.close i:focus,
+.close i:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.row {
+  background: #eee;
+  padding: 10px;
+  cursor: pointer;
+  border-top: 1px solid grey;
+}
+.row div {
+  float: left;
+}
+.row .caption {
+  width: 43%;
+  display: table;
+  height: 100px;
+  font-size: 20px;
+}
+.row .caption span {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+.row .image {
+  position: relative;
+}
+.row .image img {
+  float: left;
+  height: 98px;
+  border: 1px solid grey;
+  width: 176px;
+}
+.row .image .time {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 0 5px;
+  color: white;
+  font-size: 12px;
+}
+.row .play {
+  position: relative;
+  width: 20%;
+  display: table;
+  height: 100px;
+  font-size: 24px;
+  font-weight: lighter;
+  float: right;
+}
+.row .play span {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+  right: -10px;
+  transition: 0.3s all;
+}
+.row .play i {
+  position: absolute;
+  right: 0;
+  opacity: 0;
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+  transition: 0s all;
+  font-size: 72px;
+  color: white;
+}
+.row:hover {
+  background: #f90;
+  color: white;
+}
+.row:hover .play span {
+  transform: scale(0);
+}
+.row:hover .play i {
+  opacity: 1;
+  right: 32%;
+  transform: translateY(-50%) scale(1);
+  transition: 0.3s all;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+#modal1 .modal-content {
+  padding: 0;
+}
+#modal1 .modal-content .close i {
+  right: -30px;
+  top: 0;
+  position: absolute;
+}
+#modal3 .modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  min-width: 400px;
+  position: relative;
+}
+#modal3 .modal-content h2 {
+  text-align: center;
+}
+#modal3 .modal-content .controls {
+  float: right;
+}
+#modal3 .modal-content .controls > * {
+  float: right;
+}
+#modal3 .modal-content .settItem {
+  margin-top: 10px;
+  left: 50%;
+  height: 40px;
+  transform: translateX(-50%);
+  display: block;
+  position: relative;
+}
+#modal3 .modal-content .settItem input[type="range"] {
+  width: 220px;
+  max-width: 58%;
+  margin-left: 10px;
+  padding-bottom: 2px;
+  display: inline-block;
+}
+#modal3 .modal-content .settItem .checkDesc {
+  transform: translateY(25%);
+  display: inline-block;
+}
+#modal3 .modal-content .settItem .rangeVal {
+  display: inline-block;
+  width: 30px;
+  margin-left: 10px;
+}
+.info {
+  color: grey;
+  font-size: 12px;
+}
+.info.copy {
+  float: right;
+  display: inline-block;
+}
+.chase {
+  display: none;
+  width: 100%;
+  bottom: 32px;
+  height: 60px;
+  position: absolute;
+  background: #0000004a;
+  align-items: center;
+}
+.chase #speed {
+  font-size: 24px;
+  padding: 10px;
+  width: 60px;
+  z-index: 2;
+  margin-left: 18px;
+}
+.chase #current,
+.chase #dest {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  transform: translateX(-50%);
+  border-radius: 100%;
+}
+.chase #current {
+  background: #f90;
+  z-index: 1;
+}
+.chase #dest {
+  background: rgba(0, 0, 0, 0.8);
+}
+.chase .measure {
+  position: absolute;
+  height: 40px;
+  width: 1px;
+  background: white;
+}
+.chase .measure.small {
+  height: 15px;
+  background: rgba(255, 255, 255, 0.5);
+}
+.chase .measure.middle {
+  height: 25px;
+  background: rgba(255, 255, 255, 0.5);
+}
